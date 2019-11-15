@@ -284,7 +284,7 @@ TEST_CASE("MainWrapper: throw help")
     struct Main : public MainWrapper
     {
         Main() : MainWrapper( "Example Unit Test") { }
-        int impl( int, const char* []) const final { throw config::HelpOption( "Help!"); }
+        int impl( int, const char* []) const final { throw config::HelpOption(); }
     };
 
     CHECK( Main().run( 0, nullptr) == 0);
