@@ -19,7 +19,7 @@ void handleArgs( int argc, const char* const argv[], int start_index) try
     if ( help_option)
         throw HelpOption();
 }
-catch ( popl::invalid_option e) {
+catch ( const popl::invalid_option& e) {
     throw InvalidOption( e.what());
 }
 
