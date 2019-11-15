@@ -16,7 +16,7 @@ static const constexpr int INVALID_OPTION_EXIT_CODE = 4;
 int MainWrapper::run( int argc, const char* argv[]) const try {
     return impl( argc, argv);
 }
-catch ( const config::HelpOption& e) {
+catch ( const config::HelpOption&) {
     std::cout << desc << std::endl << std::endl << config::help() << std::endl;
     return 0;
 }
