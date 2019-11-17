@@ -329,5 +329,5 @@ TEST_CASE("RISCV RV64 pcnt")
     RISCVInstr<uint64> instr( "pcnt", 0);
     instr.set_v_src( 0xfafb'fcfd'feff, 0);
     instr.execute();
-    CHECK( instr.get_v_dst() == 41);
+    CHECK( instr.get_v_dst() == 0x29);
 }
