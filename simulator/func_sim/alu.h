@@ -205,11 +205,11 @@ struct ALU
     template<typename I, typename T> static void clz( I* instr)  { instr->v_dst = count_leading_zeroes<T>( instr->v_src1); }
     template<typename I, typename T> static
     void pcnt(I* instr){
-      std::size_t max = popcount<T>(instr->v_src1) - 1 - count_leading_zeroes<T>( ~instr->v_src1);
+      std::size_t max = bitwidth<T> - 1 - count_leading_zeroes<T>( ~instr->v_src1);
       uint8 count = 0;
       for ( std::size_t index = 0; index < max; index++)
       {
-        count += (instr->v_src1 >> index) & 1;
+        count += narrow_cast<uint8>((instr->v_src1 >> index) & 1);
       }
       instr->v_dst = count;
     }
